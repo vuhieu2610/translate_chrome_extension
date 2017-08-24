@@ -1,0 +1,137 @@
+.content {
+  width: 100%;
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+body {
+  min-width: 400px;
+  position: relative;
+}
+
+.search-bar {
+  width: 80%;
+  height: 34px;
+  margin-right: 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.search-bar input {
+  width: 100%;
+  height: 100%;
+  padding-right: 5px;
+  padding-left: 5px;
+  background: transparent;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.translate-text {
+  width: 20%;
+  border-radius: 0;
+  outline: none;
+}
+
+footer {
+  margin-top: 15px;
+  border-radius: 0 !important;
+  width: 100%;
+  margin-bottom: 0 !important;
+  text-align: center;
+  cursor: context-menu;
+  font-size: 11px;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.result {
+  display: none;
+  width: 100%;
+  /*border: 1px solid #ddd;*/
+  /*padding: 15px 5px;*/
+  /*box-shadow: inset 0px 0px 5px #ddd;*/
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.list-group-item {
+  border-radius: 0 !important;
+  border-left: none;
+  border-right: none;
+}
+
+.list-group {
+  margin-bottom: 0px !important;
+}
+
+.speak {
+  background-image: url(/public/img/audio.png);
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.speak:hover {
+  opacity: 1;
+}
+
+.switch {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch span {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.switch button {
+  font-weight: bold;
+  margin: 0 20px;
+  width: 50px;
+  overflow: hidden;
+  outline: none !important;
+  border-radius: 0 !important;
+}
+
+.switch button img {
+  width: 100%;
+  transform: rotate(0deg);
+  transition: all 0.2s;
+}
+
+.rolate {
+  transform: rotate(180deg) !important;
+}
+
+p {
+  display: inline-block;
+  padding: 10px 15px;
+  text-align: right;
+  color: #807e7e;
+  cursor: pointer;
+  margin: 0;
+  padding-bottom: 0;
+}
+p:hover{
+  color: #000;
+  text-decoration: unset;
+}
+.more{
+  text-align: right;
+}

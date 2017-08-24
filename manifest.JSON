@@ -1,0 +1,57 @@
+{
+  "name": "translator",
+  "version": "1.0",
+  "browser_action":
+  {
+    "default_icon":
+    {
+      "19": "/public/img/icon.png",
+      "38": "/public/img/icon.png"
+    },
+    "default_popup": "default_popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "management",
+    "topSites",
+    "tts",
+    "unlimitedStorage",
+    "contextMenus",
+    "activeTab",
+    "<all_urls>"
+
+  ],
+  "icons":
+  {
+    "128": "/public/img/icon.png",
+    "16": "/public/img/icon.png",
+    "19": "/public/img/icon.png",
+    "32": "/public/img/icon.png",
+    "38": "/public/img/icon.png",
+    "48": "/public/img/icon.png"
+  },
+  "content_scripts": [
+  {
+    "matches": [ "\u003Call_urls>" ],
+    "css":["/public/external/css/bootstrap.min.css","/public/css/bubble.css"],
+    "js": [
+      "/public/external/jquery-2.1.1.min.js",
+      "/public/js/content_script.js"
+    ]
+  }],
+  "background":{
+    "persistent":true,
+    "scripts":[
+      "/public/external/jquery-2.1.1.min.js",
+      "/public/js/background.js"
+    ]
+  },
+  "manifest_version": 2,
+  "description": "translate and learning English"
+
+}
