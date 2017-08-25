@@ -1,5 +1,5 @@
 {
-  "name": "translator",
+  "name": "Translator",
   "version": "1.0",
   "browser_action":
   {
@@ -26,6 +26,7 @@
     "<all_urls>"
 
   ],
+  "options_page":"option_page.html",
   "icons":
   {
     "128": "/public/img/icon.png",
@@ -37,21 +38,25 @@
   },
   "content_scripts": [
   {
-    "matches": [ "\u003Call_urls>" ],
-    "css":["/public/external/css/bootstrap.min.css","/public/css/bubble.css"],
+    "all_frames": true,
+    "matches": ["\u003Call_urls>"],
+    "css": [
+      "/public/css/bubble.css"
+    ],
     "js": [
       "/public/external/jquery-2.1.1.min.js",
       "/public/js/content_script.js"
     ]
   }],
-  "background":{
-    "persistent":true,
-    "scripts":[
+  "background":
+  {
+    "persistent": true,
+    "scripts": [
       "/public/external/jquery-2.1.1.min.js",
       "/public/js/background.js"
     ]
   },
   "manifest_version": 2,
-  "description": "translate and learning English"
+  "description": "Translate and learning English"
 
 }

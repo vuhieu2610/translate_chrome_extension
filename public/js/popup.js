@@ -4,30 +4,37 @@ $(document).ready(function() {
   $('.switcher').click(function() {
     $('.switcher img').toggleClass('rolate');
   });
-  $("#translate-text").click(function() {
-    if ($('.switcher img').hasClass("rolate")) {
-      get_result($('#text-input')[0].value, 'vi', 'en');
-    } else {
-      get_result($('#text-input')[0].value, 'en', 'vi');
+  chrome.storage.local.get("lang_selected", function(e) {
+    let lang_selected = "vi"; // default is vietnamese
+    if (e.lang_selected) {
+      lang_selected = e.lang_selected;
+      $(".to").text(lang_selected);
     }
-  });
-  $('#text-input').keypress(function(event) {
-    if (event.which === 13) {
+    $("#translate-text").click(function() {
       if ($('.switcher img').hasClass("rolate")) {
-        get_result($('#text-input')[0].value, 'vi', 'en');
+        get_result($('#text-input')[0].value, lang_selected, 'en');
       } else {
-        get_result($('#text-input')[0].value, 'en', 'vi');
+        get_result($('#text-input')[0].value, 'en', lang_selected);
       }
-    }
-  });
-  chrome.storage.local.get('selection', (data) =>{
-    if (data.selection) {
-      $('#text-input')[0].value = data.selection;
-      get_result(data.selection, "en", "vi");
-      $('.result').slideDown();
-      chrome.storage.local.set({ 'selection': "" }, ()=>{});
-    }
-  });
+    });
+    $('#text-input').keypress(function(event) {
+      if (event.which === 13) {
+        if ($('.switcher img').hasClass("rolate")) {
+          get_result($('#text-input')[0].value, lang_selected, 'en');
+        } else {
+          get_result($('#text-input')[0].value, 'en', lang_selected);
+        }
+      }
+    });
+    chrome.storage.local.get('selection', (data) => {
+      if (data.selection) {
+        $('#text-input')[0].value = data.selection;
+        get_result(data.selection, "en", lang_selected);
+        $('.result').slideDown();
+        chrome.storage.local.set({ 'selection': "" }, () => {});
+      }
+    });
+  })
 
   function get_result(str, from, to) {
     if (str.length <= 150) {
@@ -53,10 +60,10 @@ $(document).ready(function() {
       } else {
         $('.vi').html(target);
       }
-      append_addmore(from, to, encodeURIComponent(str));
+      append_addmore(to, encodeURIComponent(str));
       $('[data-toggle="tooltip"]').tooltip();
     });
-    
+
   }
 
   function get_speak() {
@@ -71,7 +78,7 @@ $(document).ready(function() {
     });
   };
 
-  function append_addmore(from, to, target) {
+  function append_addmore(to, target) {
     if ($('p').length < 1) {
       let p = $('<p>', {
         "data-toggle": "tooltip",
@@ -79,10 +86,10 @@ $(document).ready(function() {
         "title": "Click to open translate.google.com"
       })
       p.text("Read more..");
-      p.attr("href", "https://translate.google.com/?hl=vi#" + from + "/" + to + "/" + target);
+      p.attr("href", "https://translate.google.com/?hl="+to+"#auto" + "/" + to + "/" + target);
       $('.more').append(p);
     } else {
-      $('p').attr("href", "https://translate.google.com/?hl=vi#" + from + "/" + to + "/" + target);
+      $('p').attr("href", "https://translate.google.com/?hl="+to+"#auto"+ "/" + to + "/" + target);
     }
     if (!target) {
       $('p').remove();
