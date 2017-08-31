@@ -1,5 +1,5 @@
 # Translate chrome_extension
-### Translator is demo extension for translate English to Vietnamese (i will update all language in the future)
+### Translator is demo extension for translate English 
 
 
 This extension have features based on Google translate extension!

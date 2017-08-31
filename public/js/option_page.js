@@ -92,9 +92,12 @@ $(document).ready(function() {
     }
   })
   $(".save").click(function() {
+<<<<<<< HEAD
     storage.set({"lang_text": lang_option[$("#select")[0].value.toUpperCase()]}, function(){
       console.log("saved");
     })
+=======
+>>>>>>> 24b636a7afef22c4029d46daf6a726e60848ed0f
     storage.set({ "lang_selected": $("#select")[0].value }, function() {
       chrome.runtime.sendMessage({ "reload": true });
       let alert = $("<div>", {
