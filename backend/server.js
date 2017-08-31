@@ -4,7 +4,7 @@ app.listen(process.env.PORT ||3000, () => {
   console.log('Connected!');
 })
 let request = require('request');
-var token = 'EAACEdEose0cBABoZCsySZAvCmZBZALnDftcYBgobBeq3IX54Vji9eVHGFleV9usCsl5UVwbc3DojVWd7y4ZC0mUR8YvVMg4Ltcv4cGXvFjqKIQIHgLMgWeNEknd9qZBbR3aAMycFN8Ec1z0ODkAvgv5MelSzmcN8uKWc6xu2Sq1rnVABiWkEZBEw5OOlQXB03NxU0adJXFzOAZDZD';
+var token = 'API_KEY';
 var imagesURL=[];
 function getRandomImages() {
   let randomIndex = Math.floor((Math.random() * (100 - 5)));
