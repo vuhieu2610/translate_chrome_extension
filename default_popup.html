@@ -6,29 +6,39 @@
   <link rel="stylesheet" type="text/css" href="/public/external/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/public/css/popup.css">
   <script type="text/javascript" src="/public/external/jquery-2.1.1.min.js"></script>
-  <script type="text/javascript" src="/public/external/js/tether.min.js"></script>
   <script type="text/javascript" src="/public/external/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/public/js/popup.js"></script>
 </head>
 
 <body>
-  <div class="content">
-    <div class="switch">
-      <span class="form">En</span>
-      <button class="btn btn-default switcher" data-toggle="tooltip" data-placement="bottom" title="Click to change"><img src="/public/img/Arrow.png"></button><span class="to"></span>
+  <div class="content row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="start col-md-4">
+          <button class="btn btn-success test">Take a test</button>
+        </div>
+        <div class="switch col-md-8">
+          <span class="form">English</span>
+          <button class="btn btn-default switcher" data-toggle="tooltip" data-placement="bottom" title="Click to change"><img src="/public/img/Arrow.png"></button><span class="to"></span>
+        </div>
+      </div>
     </div>
-    <div class="search-bar">
-      <input type="text" name="text-input" autofocus id="text-input">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="search-bar">
+          <input type="text" name="text-input" autofocus id="text-input">
+        </div>
+        <button id="translate-text" class="translate-text btn btn-info">Go</button>
+      </div>
     </div>
-    <button id="translate-text" class="translate-text btn btn-info">Go</button>
   </div>
   <div class="result list-group">
     <div class="en list-group-item"></div>
     <div class="vi list-group-item"></div>
   </div>
   <div class="more"></div>
-  <footer class="card">
-   <h6 class="card-header"> __2017__Minh__Hieu__</h6>
+  <footer class="card well well-sm">
+    <h6 class="card-header"> __2017__Minh__Hieu__</h6>
   </footer>
 </body>
 

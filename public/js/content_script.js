@@ -5,14 +5,16 @@ $(document).ready(function() {
     removeTranslateButton();
     $(document).mouseup(function(event) {
       let selection = window.getSelection().toString();
-      chrome.storage.local.set({ 'selection': selection }, function() {});
-      if (selection.length >= 2 && selection.length <= 300) {
+      if ((/^[\d]|^[.]|^[\s]+/ig).test(selection)!=true && selection!="") {
+        chrome.storage.local.set({ 'selection': selection }, function() {});
         setTimeout(function() {
           if (count === true) {
             create_button(event);
             open_bubble();
           }
         }, 300);
+      } else{
+        chrome.storage.local.set({ 'selection': "" }, function() {});
       }
       event.stopPropagation();
     })
@@ -72,7 +74,7 @@ $(document).ready(function() {
 
   function create_button(event) {
     let xPos = event.pageX + "px";
-    let yPos = event.pageY + "px";
+    let yPos = event.pageY +15+ "px";
     let button = document.createElement('button');
     button.setAttribute('id', 'translate');
     button.style.cssText = 'top: ' + yPos + '; left: ' + xPos + ';';

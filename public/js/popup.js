@@ -4,11 +4,20 @@ $(document).ready(function() {
   $('.switcher').click(function() {
     $('.switcher img').toggleClass('rolate');
   });
+  $(".test").click(function() {
+    window.open(chrome.runtime.getURL("/test.html"))
+  })
+  chrome.storage.local.get("lang_text", function(e) {
+    let lang_text = "vietnamese";// default is vietnamese
+    if (e.lang_text) {
+      lang_text = e.lang_text;
+      $(".to").text(lang_text);
+    }
+  })
   chrome.storage.local.get("lang_selected", function(e) {
     let lang_selected = "vi"; // default is vietnamese
     if (e.lang_selected) {
       lang_selected = e.lang_selected;
-      $(".to").text(lang_selected);
     }
     $("#translate-text").click(function() {
       if ($('.switcher img').hasClass("rolate")) {
@@ -54,6 +63,8 @@ $(document).ready(function() {
     url += "&q=" + encodeURIComponent(str);
     $.get(url, function(data, status) {
       let target = data.data.translations[0].translatedText;
+      chrome.runtime.sendMessage({ "collect": {
+          [str]: target } });
       if (str.length <= 150) {
         $('.vi').html('<i class="speak" data-src="' + to + '" speak-for="' + target + '"></i> ' + target);
         get_speak();
@@ -86,10 +97,10 @@ $(document).ready(function() {
         "title": "Click to open translate.google.com"
       })
       p.text("Read more..");
-      p.attr("href", "https://translate.google.com/?hl="+to+"#auto" + "/" + to + "/" + target);
+      p.attr("href", "https://translate.google.com/?hl=" + to + "#auto" + "/" + to + "/" + target);
       $('.more').append(p);
     } else {
-      $('p').attr("href", "https://translate.google.com/?hl="+to+"#auto"+ "/" + to + "/" + target);
+      $('p').attr("href", "https://translate.google.com/?hl=" + to + "#auto" + "/" + to + "/" + target);
     }
     if (!target) {
       $('p').remove();
