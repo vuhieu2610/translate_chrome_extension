@@ -9,7 +9,7 @@ The extension also add a button in the page when you select some text in the pag
 
 ### Update:
 
-Test vocabulary feature. If you search vocabulary greater than 20 words, you could take the test. The interesting thing is if you pass 85%, translator will give to you 5 sexy girl images. If you didn't pass, you must do again or give up.
+Test vocabulary feature. If you search vocabulary greater than 20 words, you could take the test. The interesting thing is if you pass 85% or more, translator will give to you 5 sexy girl images. If you didn't pass, you must do again or give up.
 
 ------------------
 ## Installation
