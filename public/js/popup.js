@@ -57,7 +57,7 @@ $(document).ready(function() {
     } else {
       $('.result').slideDown(50);
     }
-    let url = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBS3kL-NT547cm3dyi6ooj2XYtarN7w5tc";
+    let url = "https://translation.googleapis.com/language/translate/v2?key='Your-API-Key'";
     url += "&source=" + from;
     url += "&target=" + to;
     url += "&q=" + encodeURIComponent(str);
